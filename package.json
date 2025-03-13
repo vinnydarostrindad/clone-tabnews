@@ -4,7 +4,9 @@
   "description": "Repositório para melhorar minhas habilidades como programador. Esse projeto é do curso.dev do Felipe Deschamps",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run services:up && npm run services:wait:database && npm run migrations:up && next dev",
+    "dev": "node scripts/dev.js",
+    "dev:run": "npm run services:up && npm run services:wait:database && npm run migrations:up && next dev",
+    "postdev": "npm run services:stop",
     "test": "npm run services:up && concurrently -n next,jest --hide next -k -s command-jest \"next dev\" \"jest --runInBand --verbose\"",
     "posttest": "npm run services:stop",
     "test:watch": "jest --watchAll --runInBand",
